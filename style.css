@@ -12,7 +12,7 @@ h1 {
     -webkit-text-fill-color: transparent;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 h2{
     font-size: 28px;
@@ -34,19 +34,42 @@ svg{
     filter: invert(32%) sepia(60%) saturate(5373%) hue-rotate(340deg) brightness(109%) contrast(102%);
     transform: scale(2);
 }
+.btn{
+    height: 50px;
+    width: 200px;
+    margin: 10px;
+    border-radius: 25px;
+    border: none;
+    font-size: 20px;
+}
+.btn:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+#ad{
+    background-color: rgb(107, 249, 213);
+}
+#wb{
+    background-color: #f9d4fc;
+}
 .mail{
-    margin: 0 auto;
+    margin: 2% auto;
     text-align: center;
     width: 100%;
 }
 @media (width<600px) {
     body{
         width: 100%;
-        margin-top: 50%;
+        margin-top: 40%;
         /* padding: 5%; */
     }
     .tagline{
-        margin: 5%;
+        margin: 5% auto;
+    }
+    .btn{
+        display: block;
+        text-align: center;
+        margin: 10px 0;
     }
 }
 .current_pro{
@@ -55,9 +78,14 @@ svg{
     text-align: center;
     color: white;
 }
-.current_pro>a{
+a{
+    list-style: none !important;
     text-decoration: none;
-    font-size: 22px;
-    color: white;
-    text-decoration: underline;
+    color: black;
 }
+p{
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+}
+

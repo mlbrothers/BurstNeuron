@@ -1,3 +1,3 @@
 # home_page
 
-Demo: [Cocoden](https://www.cocoden.in/)
+Demo: [Burst Neuron](https://www.burstneuron.com/)
