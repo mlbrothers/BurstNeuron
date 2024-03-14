@@ -128,5 +128,10 @@ svg{
         font-size: 18px;
         padding: 2px 10px 0 10px;
     }
+    p{
+        padding: 0 20px;
+        font-size: 14px;
+        margin: 4px 0;
+    }
 }
 
