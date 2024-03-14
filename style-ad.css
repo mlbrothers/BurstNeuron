@@ -27,16 +27,17 @@ h1 {
     margin: 20px auto;
 }
 a{
-    text-decoration: none;
+    text-decoration: underline;
     display: inline-block;
-    padding: 20px 20px 0 20px;
-    font-size: 24px;
+    padding: 0 20px 0 20px;
+    font-size: 28px;
     color: white;
     font-weight: 900;
 }
 p{
     padding: 0 20px;
-    font-size: 12px;
+    font-size: 20px;
+    margin: 4px 0;
 }
 img{
     height: 100px;
@@ -62,6 +63,39 @@ img{
 svg{
     filter: invert(32%) sepia(60%) saturate(5373%) hue-rotate(340deg) brightness(109%) contrast(102%);
     transform: scale(2);
+}
+@media (width<1300px) {
+    body{
+        width: 100%;
+        margin-top: 10%;
+        /* padding: 5%; */
+    }
+    .tagline{
+        margin: 5% auto;
+    }
+    .apps{
+        width: 60%;
+        margin: 0;
+        padding: 0;
+        margin: auto;
+    }
+    .app{
+        width: 90%;
+        margin: auto;
+        height: 100px;
+        margin-bottom: 40px;
+        padding: 40px 10px;
+    }
+    img{
+        height: 70px;
+        width: auto;
+        border: 3px solid white;
+        border-radius: 10px;
+    }
+    a{
+        font-size: 18px;
+        padding: 2px 10px 0 10px;
+    }
 }
 @media (width<600px) {
     body{
