@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <title>Burst Neuron</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./main.js"></script>
+    <title>Burst Neuron | Innovative Products</title>
+    <link rel="stylesheet" href="./static/style.css">
 </head>
+
 <body>
-    <h1>Burst Neuron</h1>
-    <div class="tagline">Shipping WebApps and Android apps.</div>
-    <div class="current_pro">
-        <button class="btn" id="ad"><a href="./android.html">Android Apps</a></button>
-        <button class="btn" id="wb"><a href="#">WebApps (soon)</a></button>
-    </div>
-    <div class="mail">
-        <p>Contact Us:</p>
-        <span><a href="mailto: mlbrothers2024@gmail.com" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-            class="stroke-none hover:fill-white h-8 w-8 md:h-10 md:w-10 fill-ruddy drop-shadow-md">
-                <title>Email</title>
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2
-                 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z">
-                </path>
-            </svg></a>
-        </span>
-    </div>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="./static/white.png" alt="logo" width="50px" height="50px">
+            <div class="logo">Burst Neuron</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to Burst Neuron</h1>
+        <p>Innovative solutions in hardware and software for your everyday needs.</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2>Our Products</h2>
+        <div class="products-container">
+            <!-- Car Dashcam -->
+            <div class="product-card">
+                <h3>Satyaki Car Dashcam</h3>
+                <p>High-quality dashcam providing security and convenience for your vehicle.</p>
+                <a href="https://www.satyaki.in" target="_blank">Learn more</a>
+            </div>
+
+            <!-- Vidoren -->
+            <div class="product-card">
+                <h3>Vidoren</h3>
+                <p>A content creation platform that simplifies video editing with caption tools and more.</p>
+                <a href="https://www.vidoren.com" target="_blank">Visit Vidoren</a>
+            </div>
+
+            <!-- ToolsForImage -->
+            <div class="product-card">
+                <h3>ToolsForImage</h3>
+                <p>Easy-to-use image processing tools for all your needs, right from your browser.</p>
+                <a href="https://www.toolsforimage.com" target="_blank">Try ToolsForImage</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2024 Burst Neuron. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:mlbrothers2024@gmail.com">mlbrothers2024@gmail.com</a></p>
+    </footer>
 </body>
+
 </html>
