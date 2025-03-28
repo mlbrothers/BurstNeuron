@@ -10,7 +10,7 @@ def home():
 def tip_calculator():
     return render_template('tip_calculator.html')
 
-@app.route('/app-ads.txt')
+@app.route('/tip-calculator/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
 
