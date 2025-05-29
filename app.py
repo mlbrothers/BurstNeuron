@@ -14,6 +14,10 @@ def tip_calculator():
 def plant_identifier():
     return render_template('plant_identifier.html')
 
+@app.route('/CrushVid')
+def crushvid():
+    return render_template('crushvid.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
