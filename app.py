@@ -18,6 +18,10 @@ def plant_identifier():
 def crushvid():
     return render_template('crushvid.html')
 
+@app.route('/CrushVid-iphone')
+def crushvid_iphone():
+    return render_template('crushvid-iphone.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
