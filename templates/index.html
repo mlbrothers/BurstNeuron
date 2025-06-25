@@ -3,59 +3,740 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burst Neuron | Innovative Products</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="description" content="Burst Neuron - Innovative deep tech startup offering cutting-edge solutions in hardware, software, 3D printing, laser cutting, CNC, and PCB assembly services.">
+    <meta name="keywords" content="deep tech startup, hardware solutions, software innovation, 3D printing, laser cutting, CNC machining, PCB assembly, dashcam, image processing">
+    <meta name="author" content="Burst Neuron">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Burst Neuron | Innovative Deep Tech Solutions">
+    <meta property="og:description" content="Leading deep tech startup providing innovative hardware and software solutions, manufacturing services including 3D printing, laser cutting, and PCB assembly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://burstneuron.com">
+    <link rel="canonical" href="https://burstneuron.com">
+    <title>Burst Neuron | Innovative Deep Tech Solutions</title>
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-white: #ffffff;
+            --secondary-white: #f8fafc;
+            --accent-white: #f1f5f9;
+            --primary-black: #0f172a;
+            --secondary-black: #1e293b;
+            --text-gray: #334155;
+            --light-gray: #64748b;
+            --border-gray: #e2e8f0;
+            --tech-blue: #3b82f6;
+            --tech-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Rajdhani', 'Roboto Condensed', 'Arial Narrow', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            background-color: var(--primary-white);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-container img {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+        }
+
+        .desktop-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .desktop-nav ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .desktop-nav ul li a:hover {
+            color: var(--primary-black);
+        }
+
+        .desktop-nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--tech-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .desktop-nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-black);
+            margin: 2px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-button.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-button.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-button.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mobile-menu ul li {
+            margin: 2rem 0;
+        }
+
+        .mobile-menu ul li a {
+            color: var(--primary-white);
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .mobile-menu ul li a:hover {
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: scale(1.1);
+        }
+
+        .mobile-menu ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--tech-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--secondary-white);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--tech-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.025em;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 2rem;
+            background: var(--primary-white);
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products h2 {
+            font-family: 'Orbitron', monospace;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .products-subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            text-align: center;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--light-gray);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.025em;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--primary-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--tech-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+            border-color: transparent;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--tech-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .product-card h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .product-card p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .product-link {
+            font-family: 'Rajdhani', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-black);
+            color: var(--primary-white);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            transition: all 0.3s ease;
+        }
+
+        .product-link:hover {
+            background: var(--secondary-black);
+            transform: translateX(2px);
+        }
+
+        .product-link::after {
+            content: '→';
+            font-size: 1.125rem;
+            transition: transform 0.3s ease;
+        }
+
+        .product-link:hover::after {
+            transform: translateX(2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--accent-white);
+            border-top: 1px solid var(--border-gray);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-info p {
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info a {
+            color: var(--tech-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-info a:hover {
+            color: var(--primary-black);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-gray);
+            color: var(--light-gray);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-container img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .products {
+                padding: 4rem 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .product-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--tech-blue);
+            outline-offset: 2px;
+        }
+
+        /* Prevent body scroll when mobile menu is open */
+        body.mobile-menu-open {
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="logo-container">
-            <img src="{{ url_for('static', filename='white.png') }}" alt="logo" width="50px" height="50px">
-            <div class="logo">Burst Neuron</div>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='black.png') }}" alt="Burst Neuron Logo - Deep Tech Innovation" style="width: 40px; height: auto;">
+                <div class="logo">Burst Neuron</div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home" aria-label="Go to home section">Home</a></li>
+                    <li><a href="#products" aria-label="View our products">Products</a></li>
+                    <li><a href="#contact" aria-label="Contact information">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <button class="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="#home" aria-label="Go to home section">Home</a></li>
+                    <li><a href="#products" aria-label="View our products">Products</a></li>
+                    <li><a href="#contact" aria-label="Contact information">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>Welcome to Burst Neuron</h1>
-        <p>Innovative solutions in hardware and software for your everyday needs.</p>
+        <div class="hero-content">
+            <h1>Welcome to Burst Neuron</h1>
+            <p>Innovative deep tech solutions in hardware and software for your everyday needs. Pioneering the future with cutting-edge technology and manufacturing excellence.</p>
+        </div>
     </section>
 
     <!-- Products Section -->
     <section class="products" id="products">
-        <h2>Our Products</h2>
         <div class="products-container">
-            <div class="product-card">
-                <h3>Satyaki Car Dashcam</h3>
-                <p>High-quality dashcam providing security and convenience for your vehicle.</p>
-                <a href="https://www.satyaki.in" target="_blank">Learn more</a>
-            </div>
+            <h2>Our Products</h2>
+            <p class="products-subtitle">Discover our range of innovative solutions designed to push the boundaries of technology</p>
+            
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="product-icon">🚗</div>
+                    <h3>Satyaki Car Dashcam</h3>
+                    <p>High-quality dashcam providing security and convenience for your vehicle with advanced recording capabilities and intelligent features.</p>
+                    <a href="https://www.satyaki.in" target="_blank" rel="noopener noreferrer" class="product-link" aria-label="Learn more about Satyaki Car Dashcam">Learn more</a>
+                </article>
 
-            <!-- <div class="product-card">
-                <h3>Vidoren</h3>
-                <p>A content creation platform that simplifies video editing with caption tools and more.</p>
-                <a href="https://www.vidoren.com" target="_blank">Visit Vidoren</a>
-            </div> -->
+                <article class="product-card">
+                    <div class="product-icon">🖼️</div>
+                    <h3>ToolsForImage</h3>
+                    <p>Easy-to-use image processing tools for all your needs, right from your browser. Professional-grade editing made simple and accessible.</p>
+                    <a href="https://www.toolsforimage.com" target="_blank" rel="noopener noreferrer" class="product-link" aria-label="Try ToolsForImage">Try ToolsForImage</a>
+                </article>
 
-            <div class="product-card">
-                <h3>ToolsForImage</h3>
-                <p>Easy-to-use image processing tools for all your needs, right from your browser.</p>
-                <a href="https://www.toolsforimage.com" target="_blank">Try ToolsForImage</a>
+                <article class="product-card">
+                    <div class="product-icon">🏭</div>
+                    <h3>ManufactureNow</h3>
+                    <p>Comprehensive manufacturing services including 3D printing, laser cutting, CNC machining, PCB assembly, and rapid prototyping solutions.</p>
+                    <a href="https://www.manufacturenow.in" target="_blank" rel="noopener noreferrer" class="product-link" aria-label="Explore ManufactureNow services">Explore Services</a>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer id="contact">
-        <p>&copy; 2025 Burst Neuron. All rights reserved.</p>
-        <p>Contact us: <a href="mailto:mlbrothers2024@gmail.com">mlbrothers2024@gmail.com</a></p>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p><strong>Contact us:</strong> <a href="mailto:burstneuron1729@gmail.com" aria-label="Send email to Burst Neuron">burstneuron1729@gmail.com</a></p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Burst Neuron. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+            const body = document.body;
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                const isActive = mobileMenuButton.classList.contains('active');
+                
+                if (isActive) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+
+            // Close menu when clicking on overlay
+            mobileMenuOverlay.addEventListener('click', function(e) {
+                if (e.target === mobileMenuOverlay) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Close menu when clicking on menu links
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenuButton.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            function openMobileMenu() {
+                mobileMenuButton.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                body.classList.add('mobile-menu-open');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeMobileMenu() {
+                mobileMenuButton.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                body.classList.remove('mobile-menu-open');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Burst Neuron",
+        "url": "https://burstneuron.com",
+        "logo": "https://burstneuron.com/logo.png",
+        "description": "Innovative deep tech startup offering cutting-edge solutions in hardware, software, 3D printing, laser cutting, CNC, and PCB assembly services.",
+        "email": "burstneuron1729@gmail.com",
+        "foundingDate": "2024",
+        "industry": "Technology",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Burst Neuron Products",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Satyaki Car Dashcam",
+                        "description": "High-quality dashcam providing security and convenience for your vehicle"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "ToolsForImage",
+                        "description": "Easy-to-use image processing tools for all your needs"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "ManufactureNow",
+                        "description": "Manufacturing services including 3D printing, laser cutting, CNC machining, PCB assembly"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
 </body>
 </html>
