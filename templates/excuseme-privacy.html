@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExcuseMe - Creative Excuse Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subheading {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(238, 90, 82, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(238, 90, 82, 0.4);
+            background: linear-gradient(45deg, #ee5a52, #ff6b6b);
+        }
+
+        .features {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .features ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features li {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .features li:hover {
+            transform: translateY(-10px);
+        }
+
+        .features strong {
+            color: #667eea;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .privacy-policy {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .privacy-policy h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .privacy-policy h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .privacy-policy p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .subheading {
+                font-size: 1.1rem;
+            }
+
+            .features h2, .cta h2 {
+                font-size: 2rem;
+            }
+
+            .features ul {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .features li {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='excuse.jpeg') }}" alt="ExcuseMe Logo" class="logo">
+            <h1>ExcuseMe</h1>
+            <p class="subheading">Generate creative, believable excuses for any situation instantly using AI.</p>
+            <a href="#" class="btn">Download Now</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>AI-Powered Creativity</strong> – Generate unique, believable excuses using advanced AI technology.</li>
+                <li><strong>Multiple Categories</strong> – Work, school, social events, family gatherings, and more.</li>
+                <li><strong>Instant Generation</strong> – Get creative excuses in seconds with just one tap.</li>
+                <li><strong>Save Favorites</strong> – Keep your best excuses for future use.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Never Be Stuck Again</h2>
+            <p>Download ExcuseMe and always have the perfect excuse ready.</p>
+            <a href="#" class="btn">Get the App</a>
+        </div>
+    </section>
+
+    <section class="privacy-policy">
+        <div class="container">
+            <h2>Privacy Policy</h2>
+            <p>This privacy policy applies to the ExcuseMe app (hereby referred to as "Application") developed by Siddharth Patel (hereby referred to as "Developer"). The app is provided "AS IS" and is free to use.</p>
+
+            <h3>Information Collection and Use</h3>
+            <p>The Application uses your input prompts solely for excuse generation. These prompts are sent securely to OpenAI's API for processing. According to OpenAI's policy, they <strong>do not store or use your data</strong> for model training or any other purpose.</p>
+            <p>The Developer does <strong>not collect, store, or share</strong> any personal data. All generated excuses are created on request and are not saved unless you choose to save them locally on your device.</p>
+
+            <h3>Third-Party Services</h3>
+            <p>This Application uses only the OpenAI API for excuse generation. It does <strong>not use ads, analytics, or other third-party SDKs</strong>.</p>
+
+            <h3>Children</h3>
+            <p>This Application is not directed at children under 13 and does not knowingly collect data from them.</p>
+
+            <h3>Security</h3>
+            <p>Your prompts are transmitted securely and discarded after processing. No input data is retained or reused.</p>
+
+            <h3>Changes</h3>
+            <p>This privacy policy may be updated in the future. Continued use of the app implies agreement with the current policy.</p>
+
+            <h3>Contact Us</h3>
+            <p>For any questions, please contact <strong>mlbrothers2024@gmail.com</strong>.</p>
+        </div>
+    </section>
+
+</body>
+
+</html>

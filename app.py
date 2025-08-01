@@ -22,6 +22,10 @@ def crushvid():
 def crushvid_iphone():
     return render_template('crushvid-iphone.html')
 
+@app.route('/excuseme-privacy')
+def excuseme_privacy():
+    return render_template('excuseme-privacy.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
