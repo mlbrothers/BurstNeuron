@@ -26,6 +26,10 @@ def crushvid_iphone():
 def excuseme_privacy():
     return render_template('excuseme-privacy.html')
 
+@app.route('/voicemaster-privacy')
+def voicemaster_privacy():
+    return render_template('voicemaster-privacy.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')

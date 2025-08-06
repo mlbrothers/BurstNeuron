@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceMaster - Transform Your Voice Offline on iOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subheading {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 16px 36px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+        }
+
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .features ul {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features li {
+            background: rgba(102, 126, 234, 0.05);
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .features li:hover {
+            transform: translateX(5px);
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .features strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .privacy-policy {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .privacy-policy h2 {
+            color: #333;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .privacy-policy h3 {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .privacy-policy p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .privacy-policy strong {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subheading {
+                font-size: 1.2rem;
+            }
+            
+            .features h2, .cta h2 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='voicemaster.jpeg') }}" alt="" srcset="" style="width: 200px;">
+            <h1>VoiceMaster</h1>
+            <p class="subheading">Transform your voice in real-time — completely offline.</p>
+            <a href="#" class="btn">Download for iPhone</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>100% Offline</strong> – Works entirely on your device. No internet required.</li>
+                <li><strong>Real-Time Voice Effects</strong> – Transform your voice instantly with professional-quality effects.</li>
+                <li><strong>Multiple Voice Filters</strong> – Robot, alien, chipmunk, deep voice, and many more options.</li>
+                <li><strong>Simple Interface</strong> – Clean, intuitive design for effortless voice changing.</li>
+                <li><strong>High-Quality Audio</strong> – Crystal clear voice transformation without quality loss.</li>
+                <li><strong>Free Forever</strong> – Use all core features at no cost.</li>
+                <li><strong>One-Time Pro Upgrade</strong> – Unlock premium effects for just $14.99, no subscriptions.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Unleash Your Voice's Potential</h2>
+            <p>Download VoiceMaster and transform your voice the easy, offline way.</p>
+            <a href="#" class="btn">Get the App</a>
+        </div>
+    </section>
+
+    <section class="privacy-policy">
+        <div class="container">
+            <h2>Privacy Policy</h2>
+            <p>This privacy policy applies to the VoiceMaster app (hereby referred to as "Application") developed by Siddharth (hereby referred to as "Developer"). The app is provided "AS IS" and is free to use.</p>
+
+            <h3>Information Collection and Use</h3>
+            <p>VoiceMaster runs entirely offline on your iphone. It does <strong>not collect, transmit, or store</strong> any user data, voice recordings, or audio files.</p>
+
+            <h3>Audio Processing</h3>
+            <p>All voice processing happens locally on your device. Your voice data <strong>never leaves your iphone</strong> and is not saved unless you explicitly choose to export recordings.</p>
+
+            <h3>Third-Party Services</h3>
+            <p>This Application does <strong>not use ads, analytics, cloud services, or third-party SDKs</strong>. Everything stays on your device for maximum privacy.</p>
+
+            <h3>Children</h3>
+            <p>This Application is not directed at children under 13 and does not knowingly collect data from them. It is safe for children of any age and does not contain any restrictive content.</p>
+
+            <h3>Security</h3>
+            <p>Since VoiceMaster works offline, your voice data never leaves your device, ensuring complete privacy and security of your audio content.</p>
+
+            <h3>Changes</h3>
+            <p>This privacy policy may be updated in the future. Continued use of the app implies agreement with the current policy.</p>
+
+            <h3>Contact Us</h3>
+            <p>For any questions, please contact <strong>[your-email@example.com]</strong>.</p>
+        </div>
+    </section>
+
+</body>
+
+</html>
