@@ -34,6 +34,10 @@ def voicemaster_privacy():
 def tasktalk_privacy():
     return render_template('tasktalk-privacy.html')
 
+@app.route('/posterno')
+def posterno_privacy():
+    return render_template('posterno.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
