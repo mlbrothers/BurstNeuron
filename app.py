@@ -38,6 +38,10 @@ def tasktalk_privacy():
 def posterno_privacy():
     return render_template('posterno.html')
 
+@app.route('/antiquego')
+def antiquego_privacy():
+    return render_template('antiquego.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
