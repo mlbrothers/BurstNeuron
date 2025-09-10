@@ -42,6 +42,10 @@ def posterno_privacy():
 def antiquego_privacy():
     return render_template('antiquego.html')
 
+@app.route('/roast')
+def roast_privacy():
+    return render_template('roast.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
