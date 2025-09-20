@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drongo - Smart Learning Companion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #99E6E6 0%, #B3CCFF 50%, #FFB399 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(153, 230, 230, 0.95);
+            backdrop-filter: blur(10px);
+            color: #2C5282;
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="learn-pattern" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><text x="12.5" y="12.5" text-anchor="middle" font-size="8" fill="rgba(44,82,130,0.1)">📚</text></pattern></defs><rect width="100" height="100" fill="url(%23learn-pattern)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #80E6CC, #B3E6FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            color: #2D3748;
+        }
+
+        .subheading {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            color: #4A5568;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #80E6CC, #FFB399);
+            color: #2D3748;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(128, 230, 204, 0.4);
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(128, 230, 204, 0.6);
+            background: linear-gradient(45deg, #B3FFE6, #FFCC99);
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2D3748;
+            font-weight: 700;
+        }
+
+        .features ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features li {
+            background: linear-gradient(135deg, #F0FFF0, #E6F3FF);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #80E6CC;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(128, 230, 204, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .features li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .features li:hover::before {
+            opacity: 1;
+        }
+
+        .features strong {
+            color: #2D3748;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #B3CCFF, #FFB399);
+            color: #2D3748;
+            text-align: center;
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .privacy-policy {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .privacy-policy h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2D3748;
+            font-weight: 700;
+        }
+
+        .privacy-policy h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #4A5568;
+            font-weight: 600;
+        }
+
+        .privacy-policy p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .privacy-policy ul {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-policy li {
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-policy strong {
+            color: #2D3748;
+        }
+
+        .disclaimer {
+            background: white;
+            border: 2px solid #80E6CC;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .disclaimer h3 {
+            color: #2C5282;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .disclaimer p {
+            font-size: 0.95rem;
+            color: #2D3748;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subheading {
+                font-size: 1.1rem;
+            }
+            
+            .features ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animated background elements */
+        .floating-emoji {
+            position: absolute;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
+            font-size: 3rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .emoji-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .emoji-2 { top: 60%; right: 10%; animation-delay: 2s; }
+        .emoji-3 { bottom: 20%; left: 20%; animation-delay: 4s; }
+        .emoji-4 { top: 40%; right: 20%; animation-delay: 1s; }
+    </style>
+</head>
+
+<body>
+    <div class="floating-emoji emoji-1">📚</div>
+    <div class="floating-emoji emoji-2">🎓</div>
+    <div class="floating-emoji emoji-3">📝</div>
+    <div class="floating-emoji emoji-4">💡</div>
+
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='drongo.png') }}" alt="Drongo Logo" class="logo">
+            <h1>Drongo</h1>
+            <p class="subheading">Your Smart Learning Companion - Master any topic with personalized tutorials, quizzes, and flashcards</p>
+            <a href="#" class="btn">Download Now</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Camera & PDF Upload</strong> – Capture photos of your notes or upload PDFs to create personalized learning materials instantly.</li>
+                <li><strong>AI-Powered Tutorials</strong> – Get comprehensive, easy-to-understand tutorials on any topic from your uploaded content.</li>
+                <li><strong>Interactive Quizzes</strong> – Test your knowledge with automatically generated quizzes based on your study materials.</li>
+                <li><strong>Smart Flashcards</strong> – Create and review flashcards tailored to your learning needs and progress.</li>
+                <li><strong>Personalized Learning</strong> – Adaptive content that adjusts to your learning pace and knowledge level.</li>
+                <li><strong>Privacy First</strong> – All your documents and photos stay on your device. We never store or share your personal study materials.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Learning?</h2>
+            <p>Turn any document into an interactive learning experience and accelerate your academic success!</p>
+            <a href="#" class="btn">Get Drongo</a>
+        </div>
+    </section>
+
+    <section class="privacy-policy">
+        <div class="container">
+            <h2>Privacy Policy</h2>
+            <p>This privacy policy applies to the Drongo - Smart Learning Companion app (hereby referred to as "Application") developed by Siddharth Patel (hereby referred to as "Developer"). The app is provided "AS IS" and is free to use for educational purposes.</p>
+
+            <h3>Information Collection and Use</h3>
+            <p>The Application uses images and PDF documents you provide (via camera capture or file upload) solely for generating educational content including tutorials, quizzes, and flashcards. These documents are processed securely using <strong>OpenAI and Mistral API services</strong>. According to our service providers' policies, they <strong>do not store or use your data</strong> for model training or any other purpose beyond the immediate content generation request.</p>
+            <p>The Developer does <strong>not collect, store, or share</strong> any personal data, documents, or study materials. All learning content is generated on request and can be saved locally on your device at your discretion.</p>
+
+            <h3>Document Processing</h3>
+            <p>Your photos and PDF files are analyzed using advanced AI algorithms powered by OpenAI and Mistral to provide:</p>
+            <ul>
+                <li>Comprehensive educational tutorials</li>
+                <li>Interactive quiz questions and answers</li>
+                <li>Personalized flashcard content</li>
+                <li>Adaptive learning recommendations</li>
+            </ul>
+            <p>All processing occurs in real-time through secure OpenAI and Mistral API calls and no document data is retained after analysis.</p>
+
+            <h3>User Rights and Content Ownership</h3>
+            <p>By using this Application, you confirm that you have <strong>full rights to all documents, images, and materials</strong> you upload or capture. This includes:</p>
+            <ul>
+                <li>Personal notes and handwritten materials</li>
+                <li>Textbooks and educational resources you own</li>
+                <li>Course materials you are authorized to use</li>
+                <li>Any other educational content you have permission to process</li>
+            </ul>
+            <p>The Developer assumes users have proper authorization for all uploaded content and is not responsible for copyright or intellectual property violations.</p>
+
+            <h3>Third-Party Services</h3>
+            <p>This Application uses <strong>OpenAI and Mistral API services</strong> for educational content generation and learning material creation. The app does <strong>not use ads, analytics, or other third-party tracking SDKs</strong>.</p>
+
+            <h3>Local Storage</h3>
+            <p>Any saved tutorials, quiz results, flashcards, progress data, or user preferences are stored <strong>locally on your device only</strong> and are never transmitted or backed up to external servers.</p>
+
+            <h3>Educational Purpose</h3>
+            <p>This Application is designed specifically for <strong>educational and academic purposes</strong>. All generated content is intended to enhance learning and understanding of academic subjects.</p>
+
+            <h3>Data Security</h3>
+            <p>Your documents and images are transmitted securely using encrypted connections to OpenAI's and Mistral's servers and are discarded immediately after processing. No document data is retained, cached, or reused.</p>
+
+            <h3>Age Requirements</h3>
+            <p>This Application is designed for students and learners of all ages. Users under 13 should use the app with parental supervision and consent.</p>
+
+            <h3>Changes</h3>
+            <p>This privacy policy may be updated in the future. Continued use of the app implies agreement with the current policy. Users will be notified of significant changes through app updates.</p>
+
+            <h3>Contact Us</h3>
+            <p>For any questions about this privacy policy or the Drongo app, please contact <strong>mlbrothers2024@gmail.com</strong>.</p>
+        </div>
+    </section>
+
+    <section class="disclaimer">
+        <div class="container">
+            <h3>📚 Educational Use Disclaimer</h3>
+            <p><strong>Drongo is designed purely for educational and academic purposes.</strong> Users are responsible for ensuring they have proper rights to all uploaded materials. Generated content should be used as study aids and supplements to, not replacements for, proper academic instruction. The developer is not responsible for academic outcomes or any consequences arising from the use of generated educational content. Always verify important information with authoritative sources and instructors.</p>
+        </div>
+    </section>
+
+</body>
+
+</html>

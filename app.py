@@ -46,6 +46,10 @@ def antiquego_privacy():
 def roast_privacy():
     return render_template('roast.html')
 
+@app.route('/drongo')
+def drongo_privacy():
+    return render_template('drongo.html')
+
 @app.route('/app-ads.txt')
 def serve_ads_txt():
     return send_from_directory('static', 'app-ads.txt')
